@@ -2,8 +2,6 @@
 
 A collection of production-style Generative AI and AI Agent projects. Each project demonstrates a real-world use case built with modern frameworks like LangChain, LangGraph, and OpenAI -- designed to help you understand how to build GenAI products from scratch.
 
-Built by [Ramakrushna Mohapatra](https://github.com/Ramakm)
-
 ---
 
 ## Projects
@@ -93,3 +91,10 @@ Contributions are welcome. To add a new project:
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
+
+## Built by Ramakrushna Mohapatra  
+
+[![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=flat&logo=instagram&logoColor=white)](https://instagram.com/techwith.ram)
+[![X](https://img.shields.io/badge/-X-000000?style=flat&logo=x&logoColor=white)](https://twitter.com/techwith_ram)
+[![Substack](https://img.shields.io/badge/-Substack-FF6719?style=flat&logo=substack&logoColor=white)](https://growtechie.substack.com)
+
