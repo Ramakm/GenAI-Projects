@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.env
+venv/
+.venv/
+*.csv
+!sample_data.csv

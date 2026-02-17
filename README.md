@@ -9,6 +9,7 @@ A collection of production-style Generative AI and AI Agent projects. Each proje
 | # | Project | Description | Tech Stack |
 |---|---------|-------------|------------|
 | 1 | [Customer Support Agent](./Customer-Support-Agent) | An intelligent support agent that categorizes customer queries, analyzes sentiment, and either responds or escalates to a human agent | LangGraph, LangChain, OpenAI |
+| 2 | [Data Analysis Agent](./Data-Analysis-Agent) | An AI agent that lets you analyze datasets using natural language queries, automatically generating and executing pandas code | PydanticAI, Pandas, OpenAI |
 
 ---
 
@@ -30,6 +31,23 @@ Customer Query --> Categorize --> Sentiment --> Escalation Check
 ```
 
 [View project details](./Customer-Support-Agent)
+
+---
+
+## Data Analysis Agent
+
+An AI-powered data analysis tool built with PydanticAI. Point it at any CSV file, ask questions in plain English, and it generates and executes pandas code to answer them.
+
+1. **Schema Extraction** -- reads column names, types, and sample values from the dataset
+2. **Code Generation** -- PydanticAI agent translates natural language into a pandas expression
+3. **Safe Execution** -- runs the generated code in a sandboxed environment
+4. **Result Formatting** -- returns human-readable text and formatted tables
+
+```
+Natural Language Query --> PydanticAI Agent --> Pandas Code --> Executor --> Result
+```
+
+[View project details](./Data-Analysis-Agent)
 
 ---
 
