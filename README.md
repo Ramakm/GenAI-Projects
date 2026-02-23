@@ -12,6 +12,8 @@ A collection of production-style Generative AI and AI Agent projects. Each proje
 | 2 | [Data Analysis Agent](./Data-Analysis-Agent) | Conversational agent that translates natural language questions into pandas code and executes them against any CSV | PydanticAI · Pandas · OpenAI |
 | 3 | [Production RAG System](./Production-RAG-System) | Fully containerized retrieval-augmented generation system with document ingestion, FAISS vector search, and SSE streaming | FastAPI · Streamlit · Ollama · FAISS · Docker Compose |
 | 4 | [Multi-Agent Research System](./Multi-Agent-Research-System) | Three-agent pipeline (Source Gatherer → Citation Verifier → Report Writer) that researches URLs and produces a cited Markdown report | LangGraph · FastAPI · Streamlit · Ollama · Docker Compose |
+| 5 | [Intrusion Detection System](./Intrusion-Detection-System) | Real-time person detection in user-defined restricted zones with email and desktop alert notifications | YOLOv11 · OpenCV · SMTP · plyer |
+| 6 | [Regulatory Impact Analysis Agent](./Regulatory-Impact-Analysis-Agent) | 5-node LangGraph pipeline that ingests regulatory documents (PDF, URL, text, RSS), extracts structured clauses, classifies industry, scores severity, and generates compliance action plans with SSE streaming | LangGraph · FastAPI · Streamlit · Ollama · pdfplumber · feedparser · Docker Compose |
 
 ---
 
@@ -35,7 +37,9 @@ GenAI-Projects/
 ├── Customer-Support-Agent/
 ├── Data-Analysis-Agent/
 ├── Production-RAG-System/
-└── Multi-Agent-Research-System/
+├── Multi-Agent-Research-System/
+├── Intrusion-Detection-System/
+└── Regulatory-Impact-Analysis-Agent/
 ```
 
 ---
@@ -44,12 +48,14 @@ GenAI-Projects/
 
 | Category | Technologies |
 |----------|-------------|
-| LLM Providers | OpenAI GPT, Ollama (local) |
+| LLM Providers | OpenAI GPT, Ollama (local — llama3.2) |
 | Agent Frameworks | LangGraph, LangChain, PydanticAI |
 | Backend | FastAPI, uvicorn |
 | Frontend | Streamlit |
 | Vector Search | FAISS |
-| Web Scraping | BeautifulSoup4, requests |
+| Document Parsing | pdfplumber, BeautifulSoup4, httpx |
+| Feed Ingestion | feedparser (RSS/Atom) |
+| Computer Vision | YOLOv11, OpenCV |
 | Infrastructure | Docker, Docker Compose |
 | Data / Validation | Pydantic, Pandas |
 | Language | Python 3.10+ |
