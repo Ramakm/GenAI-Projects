@@ -12,7 +12,7 @@ A collection of production-style Generative AI and AI Agent projects. Each proje
 |---|---|
 | **Projects** | 9 |
 | **LLM Providers** | OpenAI GPT · Ollama (llama3.2, local) |
-| **Primary Agent Framework** | LangGraph (5 of 8 projects) |
+| **Primary Agent Framework** | LangGraph (6 of 9 projects) |
 | **Languages** | Python 3.10+ |
 | **Deployment** | Docker Compose (all backend projects) |
 
@@ -78,7 +78,7 @@ git clone https://github.com/Ramakm/GenAI-Projects.git
 cd GenAI-Projects/<project-name>
 ```
 
-### Prerequisites for LangGraph projects (4, 6, 7, 8)
+### Prerequisites for LangGraph projects (4, 6, 7, 8, 9)
 
 ```bash
 # Install Ollama and pull the model
@@ -130,12 +130,10 @@ GenAI-Projects/
 | Agent Frameworks | LangGraph, LangChain, PydanticAI |
 | Backend | FastAPI, uvicorn |
 | Frontend | Streamlit |
-| Graph Analysis | NetworkX, pyvis |
 | Data Visualization | Plotly |
-| Media Ingestion | feedparser (RSS/Atom), httpx, BeautifulSoup4 |
+| Graph Analysis | NetworkX, pyvis |
 | Vector Search | FAISS |
-| Document Parsing | pdfplumber, BeautifulSoup4, httpx |
-| Feed Ingestion | feedparser (RSS/Atom) |
+| Document & Media Parsing | pdfplumber, feedparser, BeautifulSoup4, httpx |
 | Computer Vision | YOLOv11, OpenCV |
 | Infrastructure | Docker, Docker Compose |
 | Data / Validation | Pydantic, Pandas |
@@ -145,16 +143,16 @@ GenAI-Projects/
 
 ## LangGraph Architecture Pattern
 
-Projects 4, 6, 7, and 8 share a consistent architecture:
+Projects 4, 6, 7, 8, and 9 share a consistent architecture:
 
 ```
 FastAPI (lifespan + CORS)
   └── LangGraph StateGraph (linear pipeline)
-        ├── Node 1..N  (sync, LLM JSON calls)
-        └── Node N     (streamed token-by-token via Ollama /api/chat)
+        ├── Node 1..N-1  (sync, LLM JSON calls)
+        └── Node N       (streamed token-by-token via Ollama /api/chat)
               ↕ SSE
 Streamlit frontend
-  ├── 5-column agent progress strip
+  ├── N-column agent progress strip
   ├── Streaming report / summary placeholder
   └── Results tabs + downloads
 ```
