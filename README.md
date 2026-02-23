@@ -10,7 +10,7 @@ A collection of production-style Generative AI and AI Agent projects. Each proje
 
 | | |
 |---|---|
-| **Projects** | 8 |
+| **Projects** | 9 |
 | **LLM Providers** | OpenAI GPT · Ollama (llama3.2, local) |
 | **Primary Agent Framework** | LangGraph (5 of 8 projects) |
 | **Languages** | Python 3.10+ |
@@ -30,6 +30,7 @@ Multi-node LangGraph pipelines with FastAPI backends, Streamlit frontends, and S
 | 6 | [Regulatory Impact Analysis Agent](./Regulatory-Impact-Analysis-Agent) | Document Parser → Clause Extractor → Industry Classifier → Impact Assessor → Action Plan Generator | Ingests regulatory documents (PDF · URL · text · RSS), extracts clauses, scores severity, and streams compliance action plans |
 | 7 | [Strategic Simulation Agent](./Strategic-Simulation-Agent) | Decision Framer → Scenario Generator → Outcome Simulator → Risk Analyzer → Report Generator | Takes any business decision, generates Bull / Base / Bear / Tail Risk scenarios, projects quantitative outcomes, scores risks, and streams a strategic report |
 | 8 | [Knowledge Graph Agent](./Knowledge-Graph-Agent) | Document Ingester → Entity Extractor → Relationship Extractor → Graph Builder → Graph Summarizer | Extracts typed entities and relationships from any domain document, builds a queryable NetworkX graph, and enables semantic querying with interactive pyvis visualization |
+| 9 | [Narrative Intelligence Agent](./Narrative-Intelligence-Agent) | Source Aggregator → Sentiment Analyzer → Narrative Extractor → Pattern Mapper → Intelligence Reporter | Aggregates RSS feeds, URLs, and social text; detects sentiment shifts; classifies narratives as dominant / emerging / contested / fringe; maps meta-patterns (echo chambers, divergence, amplification); streams a strategic intelligence brief |
 
 ### RAG & Retrieval
 
@@ -64,6 +65,7 @@ Multi-node LangGraph pipelines with FastAPI backends, Streamlit frontends, and S
 | 6 | [Regulatory Impact Analysis Agent](./Regulatory-Impact-Analysis-Agent) | LangGraph · FastAPI · Streamlit · Ollama · pdfplumber · feedparser · Docker Compose |
 | 7 | [Strategic Simulation Agent](./Strategic-Simulation-Agent) | LangGraph · FastAPI · Streamlit · Ollama · Docker Compose |
 | 8 | [Knowledge Graph Agent](./Knowledge-Graph-Agent) | LangGraph · FastAPI · Streamlit · NetworkX · pyvis · Ollama · Docker Compose |
+| 9 | [Narrative Intelligence Agent](./Narrative-Intelligence-Agent) | LangGraph · FastAPI · Streamlit · Plotly · feedparser · BeautifulSoup4 · Ollama · Docker Compose |
 
 ---
 
@@ -114,7 +116,8 @@ GenAI-Projects/
 ├── Intrusion-Detection-System/
 ├── Regulatory-Impact-Analysis-Agent/
 ├── Strategic-Simulation-Agent/
-└── Knowledge-Graph-Agent/
+├── Knowledge-Graph-Agent/
+└── Narrative-Intelligence-Agent/
 ```
 
 ---
@@ -128,6 +131,8 @@ GenAI-Projects/
 | Backend | FastAPI, uvicorn |
 | Frontend | Streamlit |
 | Graph Analysis | NetworkX, pyvis |
+| Data Visualization | Plotly |
+| Media Ingestion | feedparser (RSS/Atom), httpx, BeautifulSoup4 |
 | Vector Search | FAISS |
 | Document Parsing | pdfplumber, BeautifulSoup4, httpx |
 | Feed Ingestion | feedparser (RSS/Atom) |
