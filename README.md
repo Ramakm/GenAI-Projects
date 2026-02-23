@@ -14,6 +14,7 @@ A collection of production-style Generative AI and AI Agent projects. Each proje
 | 4 | [Multi-Agent Research System](./Multi-Agent-Research-System) | Three-agent pipeline (Source Gatherer → Citation Verifier → Report Writer) that researches URLs and produces a cited Markdown report | LangGraph · FastAPI · Streamlit · Ollama · Docker Compose |
 | 5 | [Intrusion Detection System](./Intrusion-Detection-System) | Real-time person detection in user-defined restricted zones with email and desktop alert notifications | YOLOv11 · OpenCV · SMTP · plyer |
 | 6 | [Regulatory Impact Analysis Agent](./Regulatory-Impact-Analysis-Agent) | 5-node LangGraph pipeline that ingests regulatory documents (PDF, URL, text, RSS), extracts structured clauses, classifies industry, scores severity, and generates compliance action plans with SSE streaming | LangGraph · FastAPI · Streamlit · Ollama · pdfplumber · feedparser · Docker Compose |
+| 7 | [Strategic Simulation Agent](./Strategic-Simulation-Agent) | 5-node LangGraph pipeline that takes any business decision, generates Bull / Base / Bear / Tail Risk scenarios with normalized probabilities, projects quantitative outcomes and expected value, scores risk factors, and streams a strategic report with rule-based recommendations | LangGraph · FastAPI · Streamlit · Ollama · Docker Compose |
 
 ---
 
@@ -39,7 +40,8 @@ GenAI-Projects/
 ├── Production-RAG-System/
 ├── Multi-Agent-Research-System/
 ├── Intrusion-Detection-System/
-└── Regulatory-Impact-Analysis-Agent/
+├── Regulatory-Impact-Analysis-Agent/
+└── Strategic-Simulation-Agent/
 ```
 
 ---
