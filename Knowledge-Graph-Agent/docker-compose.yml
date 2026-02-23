@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: kga-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: kga-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_MODEL=llama3.2
+      - LLM_TEMPERATURE=0.1
+      - CHUNK_SIZE=1500
+      - CHUNK_OVERLAP=200
+      - MAX_CHUNKS=6
+      - MAX_ENTITIES_PER_CHUNK=10
+      - MAX_RELS_PER_CHUNK=8
+      - MAX_GRAPH_NODES=200
+      - LOG_LEVEL=INFO
+      - CORS_ORIGINS=*
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: kga-frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - BACKEND_URL=http://backend:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  ollama_data:

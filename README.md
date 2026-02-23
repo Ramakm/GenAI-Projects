@@ -17,6 +17,7 @@ A collection of production-style Generative AI and AI Agent projects. Each proje
 | 5 | [Intrusion Detection System](./Intrusion-Detection-System) | Real-time person detection in user-defined restricted zones with email and desktop alert notifications | YOLOv11 · OpenCV · SMTP · plyer |
 | 6 | [Regulatory Impact Analysis Agent](./Regulatory-Impact-Analysis-Agent) | 5-node LangGraph pipeline that ingests regulatory documents (PDF, URL, text, RSS), extracts structured clauses, classifies industry, scores severity, and generates compliance action plans with SSE streaming | LangGraph · FastAPI · Streamlit · Ollama · pdfplumber · feedparser · Docker Compose |
 | 7 | [Strategic Simulation Agent](./Strategic-Simulation-Agent) | 5-node LangGraph pipeline that takes any business decision, generates Bull / Base / Bear / Tail Risk scenarios with normalized probabilities, projects quantitative outcomes and expected value, scores risk factors, and streams a strategic report with rule-based recommendations | LangGraph · FastAPI · Streamlit · Ollama · Docker Compose |
+| 8 | [Knowledge Graph Agent](./Knowledge-Graph-Agent) | 5-node LangGraph pipeline that extracts named entities and typed relationships from any domain document, builds a queryable NetworkX knowledge graph, and enables semantic graph querying (neighborhood, path finding, keyword search) with interactive pyvis visualization | LangGraph · FastAPI · Streamlit · NetworkX · pyvis · Ollama · Docker Compose |
 
 ---
 
@@ -43,7 +44,8 @@ GenAI-Projects/
 ├── Multi-Agent-Research-System/
 ├── Intrusion-Detection-System/
 ├── Regulatory-Impact-Analysis-Agent/
-└── Strategic-Simulation-Agent/
+├── Strategic-Simulation-Agent/
+└── Knowledge-Graph-Agent/
 ```
 
 ---
@@ -61,6 +63,7 @@ GenAI-Projects/
 | Feed Ingestion | feedparser (RSS/Atom) |
 | Computer Vision | YOLOv11, OpenCV |
 | Infrastructure | Docker, Docker Compose |
+| Graph Analysis | NetworkX, pyvis |
 | Data / Validation | Pydantic, Pandas |
 | Language | Python 3.10+ |
 
