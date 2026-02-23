@@ -2,6 +2,8 @@
 
 A collection of production-style Generative AI and AI Agent projects. Each project demonstrates a real-world use case built with modern frameworks — designed to help you understand how to build GenAI products from scratch.
 
+<img width="2000" height="600" alt="image" src="https://github.com/user-attachments/assets/40caa6bf-52cf-4fb1-9e02-771e9cd84a95" />
+
 ---
 
 ## Projects
