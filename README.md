@@ -6,28 +6,97 @@ A collection of production-style Generative AI and AI Agent projects. Each proje
 
 ---
 
+## At a Glance
+
+| | |
+|---|---|
+| **Projects** | 8 |
+| **LLM Providers** | OpenAI GPT · Ollama (llama3.2, local) |
+| **Primary Agent Framework** | LangGraph (5 of 8 projects) |
+| **Languages** | Python 3.10+ |
+| **Deployment** | Docker Compose (all backend projects) |
+
+---
+
 ## Projects
 
-| # | Project | Description | Stack |
-|---|---------|-------------|-------|
-| 1 | [Customer Support Agent](./Customer-Support-Agent) | Multi-step state machine that categorizes queries, analyzes sentiment, and routes to AI response or human escalation | LangGraph · LangChain · OpenAI |
-| 2 | [Data Analysis Agent](./Data-Analysis-Agent) | Conversational agent that translates natural language questions into pandas code and executes them against any CSV | PydanticAI · Pandas · OpenAI |
-| 3 | [Production RAG System](./Production-RAG-System) | Fully containerized retrieval-augmented generation system with document ingestion, FAISS vector search, and SSE streaming | FastAPI · Streamlit · Ollama · FAISS · Docker Compose |
-| 4 | [Multi-Agent Research System](./Multi-Agent-Research-System) | Three-agent pipeline (Source Gatherer → Citation Verifier → Report Writer) that researches URLs and produces a cited Markdown report | LangGraph · FastAPI · Streamlit · Ollama · Docker Compose |
-| 5 | [Intrusion Detection System](./Intrusion-Detection-System) | Real-time person detection in user-defined restricted zones with email and desktop alert notifications | YOLOv11 · OpenCV · SMTP · plyer |
-| 6 | [Regulatory Impact Analysis Agent](./Regulatory-Impact-Analysis-Agent) | 5-node LangGraph pipeline that ingests regulatory documents (PDF, URL, text, RSS), extracts structured clauses, classifies industry, scores severity, and generates compliance action plans with SSE streaming | LangGraph · FastAPI · Streamlit · Ollama · pdfplumber · feedparser · Docker Compose |
-| 7 | [Strategic Simulation Agent](./Strategic-Simulation-Agent) | 5-node LangGraph pipeline that takes any business decision, generates Bull / Base / Bear / Tail Risk scenarios with normalized probabilities, projects quantitative outcomes and expected value, scores risk factors, and streams a strategic report with rule-based recommendations | LangGraph · FastAPI · Streamlit · Ollama · Docker Compose |
-| 8 | [Knowledge Graph Agent](./Knowledge-Graph-Agent) | 5-node LangGraph pipeline that extracts named entities and typed relationships from any domain document, builds a queryable NetworkX knowledge graph, and enables semantic graph querying (neighborhood, path finding, keyword search) with interactive pyvis visualization | LangGraph · FastAPI · Streamlit · NetworkX · pyvis · Ollama · Docker Compose |
+### Agent Pipelines
+
+Multi-node LangGraph pipelines with FastAPI backends, Streamlit frontends, and SSE streaming.
+
+| # | Project | Pipeline | Description |
+|---|---------|----------|-------------|
+| 4 | [Multi-Agent Research System](./Multi-Agent-Research-System) | Source Gatherer → Citation Verifier → Report Writer | Researches a topic from URLs and produces a fully cited Markdown report |
+| 6 | [Regulatory Impact Analysis Agent](./Regulatory-Impact-Analysis-Agent) | Document Parser → Clause Extractor → Industry Classifier → Impact Assessor → Action Plan Generator | Ingests regulatory documents (PDF · URL · text · RSS), extracts clauses, scores severity, and streams compliance action plans |
+| 7 | [Strategic Simulation Agent](./Strategic-Simulation-Agent) | Decision Framer → Scenario Generator → Outcome Simulator → Risk Analyzer → Report Generator | Takes any business decision, generates Bull / Base / Bear / Tail Risk scenarios, projects quantitative outcomes, scores risks, and streams a strategic report |
+| 8 | [Knowledge Graph Agent](./Knowledge-Graph-Agent) | Document Ingester → Entity Extractor → Relationship Extractor → Graph Builder → Graph Summarizer | Extracts typed entities and relationships from any domain document, builds a queryable NetworkX graph, and enables semantic querying with interactive pyvis visualization |
+
+### RAG & Retrieval
+
+| # | Project | Description |
+|---|---------|-------------|
+| 3 | [Production RAG System](./Production-RAG-System) | Fully containerized retrieval-augmented generation system with document ingestion, FAISS vector search, chunking strategies, and SSE streaming |
+
+### Conversational Agents
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | [Customer Support Agent](./Customer-Support-Agent) | Multi-step state machine that categorizes queries, analyzes sentiment, and routes to AI response or human escalation |
+| 2 | [Data Analysis Agent](./Data-Analysis-Agent) | Conversational agent that translates natural language questions into pandas code and executes them against any CSV |
+
+### Computer Vision
+
+| # | Project | Description |
+|---|---------|-------------|
+| 5 | [Intrusion Detection System](./Intrusion-Detection-System) | Real-time person detection in user-defined restricted zones with email and desktop alert notifications |
+
+---
+
+## Full Project Index
+
+| # | Project | Stack |
+|---|---------|-------|
+| 1 | [Customer Support Agent](./Customer-Support-Agent) | LangGraph · LangChain · OpenAI |
+| 2 | [Data Analysis Agent](./Data-Analysis-Agent) | PydanticAI · Pandas · OpenAI |
+| 3 | [Production RAG System](./Production-RAG-System) | FastAPI · Streamlit · Ollama · FAISS · Docker Compose |
+| 4 | [Multi-Agent Research System](./Multi-Agent-Research-System) | LangGraph · FastAPI · Streamlit · Ollama · Docker Compose |
+| 5 | [Intrusion Detection System](./Intrusion-Detection-System) | YOLOv11 · OpenCV · SMTP · plyer |
+| 6 | [Regulatory Impact Analysis Agent](./Regulatory-Impact-Analysis-Agent) | LangGraph · FastAPI · Streamlit · Ollama · pdfplumber · feedparser · Docker Compose |
+| 7 | [Strategic Simulation Agent](./Strategic-Simulation-Agent) | LangGraph · FastAPI · Streamlit · Ollama · Docker Compose |
+| 8 | [Knowledge Graph Agent](./Knowledge-Graph-Agent) | LangGraph · FastAPI · Streamlit · NetworkX · pyvis · Ollama · Docker Compose |
 
 ---
 
 ## Getting Started
 
-Each project is self-contained with its own `README.md`, `requirements.txt`, and `.env.example`. Refer to the individual project README for setup and usage instructions.
+Each project is self-contained with its own `README.md`, `requirements.txt`, and `.env.example`.
 
 ```bash
 git clone https://github.com/Ramakm/GenAI-Projects.git
 cd GenAI-Projects/<project-name>
+```
+
+### Prerequisites for LangGraph projects (4, 6, 7, 8)
+
+```bash
+# Install Ollama and pull the model
+curl -fsSL https://ollama.com/install.sh | sh
+ollama pull llama3.2
+
+# Install backend dependencies
+cd <project>/backend && pip install -r requirements.txt
+uvicorn main:app --reload
+
+# Install frontend dependencies (new terminal)
+cd <project>/frontend && pip install -r requirements.txt
+streamlit run app.py
+```
+
+### Docker (all LangGraph projects)
+
+```bash
+docker compose up --build -d
+docker exec <container>-ollama ollama pull llama3.2
 ```
 
 ---
@@ -58,14 +127,34 @@ GenAI-Projects/
 | Agent Frameworks | LangGraph, LangChain, PydanticAI |
 | Backend | FastAPI, uvicorn |
 | Frontend | Streamlit |
+| Graph Analysis | NetworkX, pyvis |
 | Vector Search | FAISS |
 | Document Parsing | pdfplumber, BeautifulSoup4, httpx |
 | Feed Ingestion | feedparser (RSS/Atom) |
 | Computer Vision | YOLOv11, OpenCV |
 | Infrastructure | Docker, Docker Compose |
-| Graph Analysis | NetworkX, pyvis |
 | Data / Validation | Pydantic, Pandas |
 | Language | Python 3.10+ |
+
+---
+
+## LangGraph Architecture Pattern
+
+Projects 4, 6, 7, and 8 share a consistent architecture:
+
+```
+FastAPI (lifespan + CORS)
+  └── LangGraph StateGraph (linear pipeline)
+        ├── Node 1..N  (sync, LLM JSON calls)
+        └── Node N     (streamed token-by-token via Ollama /api/chat)
+              ↕ SSE
+Streamlit frontend
+  ├── 5-column agent progress strip
+  ├── Streaming report / summary placeholder
+  └── Results tabs + downloads
+```
+
+SSE event sequence: `agent_start` → `agent_update` (×N) → `agent_complete` → `token` (streamed) → `done`
 
 ---
 
