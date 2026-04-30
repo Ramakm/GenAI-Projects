@@ -1,5 +1,5 @@
-streamlit==1.40.2
-requests==2.32.3
-python-dotenv==1.0.1
+streamlit==1.41.0
+requests==2.32.4
+python-dotenv==1.1.0
 pandas==2.2.3
 pyvis==0.3.2
